@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdbool.h>
+#define MAX 100
+
+int main() {
+    int stack[MAX] = {5, 5, 5, 5, 5}; // Example stack
+    int top = 4; // Top index of the stack
+    bool allSame = true;
+    
+    for (int i = 0; i < top; i++) {
+        if (stack[i] != stack[i + 1]) {
+            allSame = false;
+            break;
+        }
+    }
+    
+    if (allSame) {
+        printf("All elements in the stack are the same.\n");
+    } else {
+        printf("Not all elements in the stack are the same.\n");
+    }
+
+    return 0;
+}
