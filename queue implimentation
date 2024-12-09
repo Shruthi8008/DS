@@ -1,0 +1,27 @@
+#include <stdio.h>
+#define MAX 100
+
+int queue[MAX], front = -1, rear = -1;
+
+void enqueue(int element) {
+    queue[++rear] = element;
+    if (front == -1) front = 0;
+}
+
+int dequeue() {
+    int element = queue[front++];
+    if (front > rear) front = rear = -1; // Reset queue when empty
+    return element;
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+
+    printf("%d\n", dequeue());  // Output: 10
+    printf("%d\n", dequeue());  // Output: 20
+    printf("%d\n", dequeue());  // Output: 30
+
+    return 0;
+}
