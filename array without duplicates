@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {3, 1, 4, 2, 7, 5, 3, 6, 4, 2};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int unique[n];
+    int uniqueCount = 0;
+
+    printf("Array without duplicates:\n");
+    for (int i = 0; i < n; i++) {
+        int isDuplicate = 0;
+        for (int j = 0; j < uniqueCount; j++) {
+            if (arr[i] == unique[j]) {
+                isDuplicate = 1;
+                break;
+            }
+        }
+        if (!isDuplicate) {
+            unique[uniqueCount++] = arr[i];
+            printf("%d ", arr[i]);
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
